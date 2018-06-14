@@ -10,27 +10,63 @@ var previouslyGuessedLetter = []
 //Set number of guesses for each game. Will decrease with each letter being guessed
 var remainingGuessesTotal = 10
 
-//The possible countries within the game
+ //The possible countries within the game
 var arrayOfCountries = ["America", "Canada", "Scotland", "Ireland", "Italy", "France", "Russia", "China", "Japan", "England", "Mexico", "Venezuela", "Argentina"]
+
+/*
+var arrayOfCountries = {
+  "America": 7,
+  "Canada": 6, 
+  "Scotland": 8, 
+  "Ireland": 7, 
+  "Italy": 5, 
+  "France": 6, 
+  "Russia": 6, 
+  "China": 5, 
+  "Japan": 5, 
+  "England": 7, 
+  "Mexico": 6, 
+  "Venezuela": 9, 
+  "Argentina": 9
+}
+*/
 
 // Randomly chooses a country from the array of Countries. Guessing this correct is the objective of the game.
 var randomCountry = arrayOfCountries[Math.floor(Math.random() * arrayOfCountries.length)];
-console.log(randomCountry)
+console.log("Random Country: " + randomCountry)
+
+var lengthOfCountry = 0
 
 
+for (i = 0; i < previouslyGuessedLetter.length; i++) {
+  foreach (randomCountry.charAt(i)); {
+    lengthOfCountry = lengthOfCountry + 1;
+  }
+}
+console.log("Length of Country " + lengthOfCountry)
 
 document.onkeyup = function(event) {
     // Determines which key was pressed.
     var userGuess = event.key;
+    console.log("UserGuess " + userGuess)
 
-    previouslyGuessedLetter.push(userGuess);
+    
     console.log(previouslyGuessedLetter)
 
-    if (userGuess)
+    for (i = 0; i < previouslyGuessedLetter.length; i++) {
+      if (userGuess === previouslyGuessedLetter[i]) {
+        
+      }
+      else {
+        previouslyGuessedLetter.push(userGuess);
+        
+      }
+    }
     remainingGuessesTotal = remainingGuessesTotal - 1;
-    console.log(remainingGuessesTotal)
-
+    console.log("Remaining Guesses: " + remainingGuessesTotal)
 }
+
+
 
 
 
