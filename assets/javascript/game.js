@@ -57,6 +57,40 @@ for (var z = 0, len = randomCountry.length; z < len; z++) {
 //This just prints the length of characters in each country for verification 
 console.log("Length of Country " + lengthOfCountry)
 
+var dashesArray = []
+
+for (var a = 0, bob = randomCountry.length; a < bob; a++) {
+  dashesArray.push("_")
+}
+console.log(dashesArray)
+
+for (var b = 0, fred = randomCountry.length; b < fred; b++) {
+  document.getElementById('currentWord').innerHTML += " " + dashesArray[b];
+}
+
+
+
+//For index.html -> ID=currentWord
+//var emptyLetter = "<p>_</p>";
+
+//Dont hurt yourself thinking
+//var numberOfDashes = '<p>_</p>' * lengthOfCountry;
+//console.log("Dashes " + numberOfDashes)
+
+/* Bologna
+countryLengthArray.foreach; {
+  document.getElementById('currentWord').innerHTML = '<p>_</p>' ;
+}
+//console.log("country length is " + countryLengthArray.length)
+*/
+
+
+/* - I'm a horrible human being
+//This should insert place holders in HTML for which country to guess
+foreach (x in countryLengthArray); {
+  document.getElementById('currentWord').innerHTML = emptyLetter
+}
+*/
 
 
 document.onkeyup = function(event) {
