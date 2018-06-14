@@ -35,15 +35,29 @@ var arrayOfCountries = {
 var randomCountry = arrayOfCountries[Math.floor(Math.random() * arrayOfCountries.length)];
 console.log("Random Country: " + randomCountry)
 
+//For measuring the length of characters in each country
 var lengthOfCountry = 0
 
+//Place holder array for front end code
+var countryLengthArray = []
 
-for (i = 0; i < previouslyGuessedLetter.length; i++) {
-  foreach (randomCountry.charAt(i)); {
-    lengthOfCountry = lengthOfCountry + 1;
-  }
+//Builds the array for countryLengthArray
+for (var y = 0, dude = randomCountry.length; y < dude; y++) {
+  countryLengthArray.push(randomCountry[y])
 }
+
+//This just verifies countryLengthArray works correctly
+console.log(countryLengthArray)
+
+//This loop measures the length of characters in each country
+for (var z = 0, len = randomCountry.length; z < len; z++) {
+  lengthOfCountry = lengthOfCountry + 1;
+}
+
+//This just prints the length of characters in each country for verification 
 console.log("Length of Country " + lengthOfCountry)
+
+
 
 document.onkeyup = function(event) {
     // Determines which key was pressed.
@@ -75,6 +89,10 @@ document.onkeyup = function(event) {
 
 /* BAD CODE
 
+/* - ugh
+console.log("Country Length Array " + countryLengthArray)
+
+
 var countryLength = randomCountry.length
 
 function repeatStringNumTimes(string, times) {
@@ -105,5 +123,16 @@ console.log(repeatStringNumTimes("_", countryLength))
 for (var l = 0; l < randomCountry.length;  l++) {
     document.getElementById('currentWord').innerHTML = "_"
 }
+
+
+
+/* - Just so bad yo!
+for (z = 0; z < randomCountry.length; z++) {
+  foreach (randomCountry.charAt(z)); {
+    lengthOfCountry = lengthOfCountry + 1;
+  }
+}
+console.log("Length of Country " + lengthOfCountry)
 */
+
 
