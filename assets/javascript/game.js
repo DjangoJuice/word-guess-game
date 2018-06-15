@@ -62,9 +62,10 @@ var dashesArray = []
 for (var a = 0, bob = randomCountry.length; a < bob; a++) {
   dashesArray.push("_")
 }
-console.log(dashesArray)
+console.log("Dashes: " + "[" + dashesArray + "]")
 
 for (var b = 0, fred = randomCountry.length; b < fred; b++) {
+  // var dynamicsDashArray = Thought I needed a container to store the updated values for dashesArray
   document.getElementById('currentWord').innerHTML += " " + dashesArray[b];
 }
 
@@ -96,10 +97,27 @@ foreach (x in countryLengthArray); {
 document.onkeyup = function(event) {
     // Determines which key was pressed.
     var userGuess = event.key;
-    console.log("UserGuess " + userGuess)
+    console.log("UserGuess: " + userGuess)
 
-    
-    console.log(previouslyGuessedLetter)
+    //Does the User's Guess match a letter in the randomCountry?
+    for (c = 0; c < randomCountry.length; c++) {
+        if (userGuess.toLocaleLowerCase() === randomCountry[c].toLocaleLowerCase()) {
+          //dashesArray[c] = userGuess;
+          dashesArray[c] = userGuess;
+          document.getElementById('currentWord').innerHTML = dashesArray;
+          // This works // document.getElementById('currentWord').innerHTML = dashesArray;
+          console.log("Dynamic Array: " + dashesArray)
+        }
+    }
+
+
+
+
+
+
+
+    // vvvv meh vvvv
+    //console.log(previouslyGuessedLetter)
 
     for (i = 0; i < previouslyGuessedLetter.length; i++) {
       if (userGuess === previouslyGuessedLetter[i]) {
