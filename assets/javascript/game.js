@@ -56,13 +56,15 @@ for (var z = 0, len = randomCountry.length; z < len; z++) {
 
 //This just prints the length of characters in each country for verification 
 console.log("Length of Country " + lengthOfCountry)
+console.log("-----------------------")
+
 
 var dashesArray = []
 
 for (var a = 0, bob = randomCountry.length; a < bob; a++) {
   dashesArray.push("_")
 }
-console.log("Dashes: " + "[" + dashesArray + "]")
+//console.log("Dashes: " + "[" + dashesArray + "]")
 
 for (var b = 0, fred = randomCountry.length; b < fred; b++) {
   // var dynamicsDashArray = Thought I needed a container to store the updated values for dashesArray
@@ -97,9 +99,30 @@ foreach (x in countryLengthArray); {
 document.onkeyup = function(event) {
     // Determines which key was pressed.
     var userGuess = event.key;
-    console.log("UserGuess: " + userGuess)
+    console.log("UserGuess: " + userGuess);
+
+    
+    //Updating array for previousGuessesLetters with userGuess
+    function addPreviousGuesses(banana) {
+      previouslyGuessedLetter.push(banana);
+    }
+    addPreviousGuesses(userGuess);
+    console.log("Letters guessed: " + previouslyGuessedLetter);
+    /* - At some point fix this ///////////////
+    if (previouslyGuessedLetter.length === 0) {
+      previouslyGuessedLetter.push(userGuess);
+    }
+    else {
+      for (d = 0; d < previouslyGuessedLetter.length; d++) {
+        if (previouslyGuessedLetter[d] !== "'" + userGuess + "'") {
+          previouslyGuessedLetter.push(userGuess);
+        }
+    }}
+    *///////////////////////////////////////////
+
 
     //Does the User's Guess match a letter in the randomCountry?
+    //If the user is guessing correct, display the updated letters, if not then -1 remaining guesses
     for (c = 0; c < randomCountry.length; c++) {
         if (userGuess.toLocaleLowerCase() === randomCountry[c].toLocaleLowerCase()) {
           //dashesArray[c] = userGuess;
@@ -108,17 +131,31 @@ document.onkeyup = function(event) {
           // This works // document.getElementById('currentWord').innerHTML = dashesArray;
           console.log("Dynamic Array: " + dashesArray)
         }
+        if (userGuess.toLocaleLowerCase() !== randomCountry[c].toLocaleLowerCase()){
+          //Finish writing this - opposite from userGuess being correct
+          //This subtraction will not work EVER - must fix
+          remainingGuessesTotal = remainingGuessesTotal -1;
+        }
+        console.log("Remaining Guesses: " + remainingGuessesTotal);
     }
 
+    //Determine if player has won
+    //I'd rather do something like: dashesArray = randomCountry?
+    for (e = 0; e < randomCountry.length; e++) {
+      if (dashesArray[e] !== "_");{
+        document.getElementById('currentWord').innerHTML += " " + dashesArray[b];
+        alert("Winner");
+      }
+    }
+      
 
 
 
 
 
 
-    // vvvv meh vvvv
-    //console.log(previouslyGuessedLetter)
-
+    
+/*
     for (i = 0; i < previouslyGuessedLetter.length; i++) {
       if (userGuess === previouslyGuessedLetter[i]) {
         
@@ -129,7 +166,9 @@ document.onkeyup = function(event) {
       }
     }
     remainingGuessesTotal = remainingGuessesTotal - 1;
-    console.log("Remaining Guesses: " + remainingGuessesTotal)
+    //console.log("Remaining Guesses: " + remainingGuessesTotal)
+    */
+    console.log("-----------------------")
 }
 
 
@@ -140,6 +179,24 @@ document.onkeyup = function(event) {
 
 
 /* BAD CODE
+
+
+
+/* I am forsaken
+     previouslyGuessedLetter.foreach(); {
+      if (!userGuess){
+        previouslyGuessedLetter.push(userGuess);
+      }
+    }
+    */
+
+    /* - Pretty much NO
+    for (var d = 0; d < randomCountry.length; d++) {
+      if (userGuess !== previouslyGuessedLetter) {
+        previouslyGuessedLetter.push(userGuess);
+      }
+    }
+    */
 
 /* - ugh
 console.log("Country Length Array " + countryLengthArray)
